@@ -50,7 +50,7 @@
     "yargs": "^2.1.1"
   },
   "jspm": {
-    "main": "index",
+    "main": "pim-api",
     "format": "cjs",
     "directories": {
       "lib": "dist/commonjs"
