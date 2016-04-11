@@ -4,8 +4,8 @@
   "description": "Aurelia SDK to connect to the Crazy Factory Product Management System.",
   "keywords": [
     "aurelia",
-    "plugin",
-    "skeleton"
+    "pim",
+    "crazyfactory"
   ],
   "homepage": "http://crazy-factory.com",
   "bugs": {
@@ -51,9 +51,9 @@
   },
   "jspm": {
     "main": "index",
-    "format": "amd",
+    "format": "ts",
     "directories": {
-      "lib": "dist/amd"
+      "lib": "dist/ts"
     },
     "dependencies": {
       "aurelia-fetch-client": "npm:aurelia-fetch-client@^1.0.0-beta.1.2.1",
