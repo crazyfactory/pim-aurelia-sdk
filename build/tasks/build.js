@@ -78,7 +78,8 @@ gulp.task('build-system', ['build-html-system'], function () {
 gulp.task('build', function(callback) {
   return runSequence(
     'clean',
-    ['build-ts', 'build-es6', 'build-commonjs', 'build-amd', 'build-system'],
+    ['build-ts'],
+    //['build-ts', 'build-es6', 'build-commonjs', 'build-amd', 'build-system'],
     callback
   );
 });
