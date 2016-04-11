@@ -2,15 +2,13 @@
    The contents of this file are automatically generated
 
    Version: DEV
-   Date:   4/8/2016 14:25:33
+   Date:    4/11/2016 11:04:13
 */
 
-/* The contents of this file are automatically generated. */
+import {ApiController} from '../pim-base';
+import {IPieceGroupTypeData} from 'pim-data';
 
-import {PimBase} from '../pim-base';
-import {IPieceGroupTypeData} from '../pim-data';
-
-export class PieceGroupTypesController extends PimBase.ApiController {
+export class PieceGroupTypesController extends ApiController {
     public static Create(data: IPieceGroupTypeData): Promise<IPieceGroupTypeData> {
         return this.put(`api/piecegrouptypes`, data);
     }
@@ -32,8 +30,5 @@ export class PieceGroupTypesController extends PimBase.ApiController {
     }
 
 }
-
-
-/* End of file */
 
 /* End of file */

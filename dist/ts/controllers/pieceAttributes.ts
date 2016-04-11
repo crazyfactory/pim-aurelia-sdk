@@ -2,15 +2,13 @@
    The contents of this file are automatically generated
 
    Version: DEV
-   Date:   4/8/2016 14:25:33
+   Date:    4/11/2016 11:04:13
 */
 
-/* The contents of this file are automatically generated. */
+import {ApiController} from '../pim-base';
+import {IPieceAttributeData} from 'pim-data';
 
-import {PimBase} from '../pim-base';
-import {IPieceAttributeData} from '../pim-data';
-
-export class PieceAttributesController extends PimBase.ApiController {
+export class PieceAttributesController extends ApiController {
     public static AddValue(key: string, value: string): Promise<IPieceAttributeData> {
         return this.put(`api/pieceattributes/${key}/values`, value);
     }
@@ -32,8 +30,5 @@ export class PieceAttributesController extends PimBase.ApiController {
     }
 
 }
-
-
-/* End of file */
 
 /* End of file */
