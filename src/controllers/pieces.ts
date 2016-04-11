@@ -2,7 +2,7 @@
    The contents of this file are automatically generated
 
    Version: DEV
-   Date:    4/11/2016 10:55:00
+   Date:    4/11/2016 11:04:13
 */
 
 import {ApiController} from '../pim-base';
