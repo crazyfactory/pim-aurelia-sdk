@@ -2,15 +2,13 @@
    The contents of this file are automatically generated
 
    Version: DEV
-   Date:   4/8/2016 14:25:33
+   Date:    4/11/2016 10:55:00
 */
 
-/* The contents of this file are automatically generated. */
+import {ApiController} from '../pim-base';
+import {ICountryData} from 'pim-data';
 
-import {PimBase} from '../pim-base';
-import {ICountryData} from '../pim-data';
-
-export class CountriesController extends PimBase.ApiController {
+export class CountriesController extends ApiController {
     public static Create(data: ICountryData): Promise<ICountryData> {
         return this.put(`api/countries`, data);
     }
@@ -32,8 +30,5 @@ export class CountriesController extends PimBase.ApiController {
     }
 
 }
-
-
-/* End of file */
 
 /* End of file */

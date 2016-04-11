@@ -51,7 +51,7 @@
   },
   "jspm": {
     "main": "index",
-    "format": "ts",
+    "format": "global",
     "directories": {
       "lib": "dist/ts"
     },

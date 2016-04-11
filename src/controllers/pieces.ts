@@ -2,15 +2,13 @@
    The contents of this file are automatically generated
 
    Version: DEV
-   Date:   4/8/2016 14:25:34
+   Date:    4/11/2016 10:55:00
 */
 
-/* The contents of this file are automatically generated. */
+import {ApiController} from '../pim-base';
+import {IPagedResultData, IPieceData, IPieceSelectorData} from 'pim-data';
 
-import {PimBase} from '../pim-base';
-import {IPagedResultData, IPieceData, IPieceSelectorData} from '../pim-data';
-
-export class PiecesController extends PimBase.ApiController {
+export class PiecesController extends ApiController {
     public static Count(data: IPieceSelectorData): Promise<number> {
         return this.head(`api/pieces`, data);
     }
@@ -40,8 +38,5 @@ export class PiecesController extends PimBase.ApiController {
     }
 
 }
-
-
-/* End of file */
 
 /* End of file */
