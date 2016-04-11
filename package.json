@@ -51,9 +51,9 @@
   },
   "jspm": {
     "main": "index",
-    "format": "global",
+    "format": "cjs",
     "directories": {
-      "lib": "dist/ts"
+      "lib": "dist/commonjs"
     },
     "dependencies": {
       "aurelia-fetch-client": "npm:aurelia-fetch-client@^1.0.0-beta.1.2.1",

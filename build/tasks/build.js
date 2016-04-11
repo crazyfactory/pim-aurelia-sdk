@@ -57,6 +57,11 @@ gulp.task('build-commonjs', ['build-html-commonjs'], function () {
     return buildFromTs(tsProjectCJS, paths.output + 'commonjs', true);
 });
 
+gulp.task('build-commonjs-ts', ['build-commonjs'], function () {
+    return gulp.src(paths.dtsSource)
+        .pipe(gulp.dest(paths.output + 'commonjs'));
+});
+
 gulp.task('build-html-amd', function () {
   return gulp.src(paths.html)
     .pipe(gulp.dest(paths.output + 'amd'));
@@ -78,8 +83,8 @@ gulp.task('build-system', ['build-html-system'], function () {
 gulp.task('build', function(callback) {
   return runSequence(
     'clean',
-    ['build-ts'],
-    //['build-ts', 'build-es6', 'build-commonjs', 'build-amd', 'build-system'],
+    //['build-ts'],
+    ['build-ts', 'build-es6', 'build-commonjs', 'build-amd', 'build-system'],
     callback
   );
 });
