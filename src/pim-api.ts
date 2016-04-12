@@ -127,10 +127,6 @@ export class PieceGroupTypesApi extends BaseApi {
 }
 
 export class PiecesApi extends BaseApi {
-    public count(data: IPieceSelectorData): Promise<number> {
-        return this._head(`api/pieces`, data);
-    }
-
     public create(data: IPieceData): Promise<IPieceData> {
         return this._put(`api/pieces`, data);
     }

@@ -43,7 +43,7 @@ export class BaseApi {
 		return this.http
 			.fetch(url, {
 				method: method,
-				body: json(data)
+				body: data !== undefined ? json(data) : undefined
 			})
 			.then(response => response.json());
 	}
@@ -68,7 +68,7 @@ export class BaseApi {
 		return this._fetch("put", url, data);
 	}
 
-	protected _head(url:string, data:any):Promise<any> {
-		return this._fetch("head", url, data);
+	protected _head(url:string):Promise<any> {
+		return this._fetch("head", url);
 	}
 }
