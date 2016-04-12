@@ -7,27 +7,22 @@
 
 declare module 'pim-api' {
 
-	//import {ICountryData, ICurrencyData, ICurrencyExchangeRateData, IPieceAttributeData, IPieceGroupData, IPieceGroupTypeData, IPagedResultData, IPieceData, IPieceSelectorData} from 'pim-data';
-	//import {IApiConfiguration} from "pim-api-core";
+	import {ICountryData, ICurrencyData, ICurrencyExchangeRateData, IPieceAttributeData, IPieceGroupData, IPieceGroupTypeData, IPagedResultData, IPieceData, IPieceSelectorData} from 'pim-data';
+	import {IApiConfiguration} from 'pim-core';
 
-	export module Data {
-		export interface ISomeData {
-			id: number;
-		}
-	}
 
 	export class CountriesApi {
-		constructor(config?: Data.ISomeData);
+		constructor(config?: ICountryData);
 
-		Create(data: Data.ISomeData): Promise<Data.ISomeData>;
+		Create(data: ICountryData): Promise<ICountryData>;
 
 		Delete(key: string): Promise<boolean>;
 
-		Get(key: string): Promise<Data.ISomeData>;
+		Get(key: string): Promise<ICountryData>;
 
-		GetAll(): Promise<Data.ISomeData[]>;
+		GetAll(): Promise<ICountryData[]>;
 
-		Update(data: Data.ISomeData): Promise<Data.ISomeData>;
+		Update(data: ICountryData): Promise<ICountryData>;
 	}
 }
 
