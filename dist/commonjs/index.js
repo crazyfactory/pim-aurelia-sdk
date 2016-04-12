@@ -1,0 +1,8 @@
+"use strict";
+function configure(config) {
+    config.globalResources('./pim-base-api.js');
+    config.globalResources('./pim-api.js');
+}
+exports.configure = configure;
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImluZGV4LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFBQSxtQkFBMEIsTUFBTTtJQUMvQixNQUFNLENBQUMsZUFBZSxDQUFDLG1CQUFtQixDQUFDLENBQUM7SUFDNUMsTUFBTSxDQUFDLGVBQWUsQ0FBQyxjQUFjLENBQUMsQ0FBQztBQUN4QyxDQUFDO0FBSGUsaUJBQVMsWUFHeEIsQ0FBQSIsImZpbGUiOiJpbmRleC5qcyIsInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCBmdW5jdGlvbiBjb25maWd1cmUoY29uZmlnKSB7XHJcblx0Y29uZmlnLmdsb2JhbFJlc291cmNlcygnLi9waW0tYmFzZS1hcGkudHMnKTtcclxuXHRjb25maWcuZ2xvYmFsUmVzb3VyY2VzKCcuL3BpbS1hcGkuanMnKTtcclxufSJdLCJzb3VyY2VSb290IjoiL3NvdXJjZS8ifQ==

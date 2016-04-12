@@ -5,10 +5,11 @@
  Date:    4/11/2016 12:05:24
  */
 
-import {ICountryData, ICurrencyData, ICurrencyExchangeRateData, IPieceAttributeData, IPieceGroupData, IPieceGroupTypeData, IPagedResultData, IPieceData, IPieceSelectorData} from 'pim-data';
-import {IApiConfiguration} from "pim-api-core";
+declare module 'pim-api' {
 
-declare module "pim-api" {
+	import {ICountryData, ICurrencyData, ICurrencyExchangeRateData, IPieceAttributeData, IPieceGroupData, IPieceGroupTypeData, IPagedResultData, IPieceData, IPieceSelectorData} from 'pim-data';
+	import {IApiConfiguration} from "pim-api-core";
+
 	export class CountriesApi {
 		constructor(config?: IApiConfiguration);
 
@@ -22,23 +23,6 @@ declare module "pim-api" {
 
 		Update(data: ICountryData): Promise<ICountryData>;
 	}
-
-	export class CurrenciesApi {
-		constructor(config?: IApiConfiguration);
-
-		Create(data: ICurrencyData): Promise<ICurrencyData>;
-
-		Delete(key: string): Promise<boolean>;
-
-		Get(key: string): Promise<ICurrencyData>;
-
-		GetAll(): Promise<ICurrencyData[]>;
-
-		GetRate(key: string, date: string): Promise<ICurrencyExchangeRateData>;
-
-		Update(data: ICurrencyData): Promise<ICurrencyData>;
-	}
 }
-
 
 /* End of file */
