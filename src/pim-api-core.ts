@@ -4,23 +4,30 @@ import {IApiConfiguration} from 'pim-core';
 
 export class BaseApi {
 
-	protected static _defaultConfig: IApiConfiguration = {
-		baseUrl: 'http://localhost:5000/api/'
+	public static getDefaultConfig(): IApiConfiguration {
+		return {
+			baseUrl: 'http://localhost:5000/',
+			token: null
+		};
 	};
 
-	constructor(config: IApiConfiguration = null) {
+	constructor(config?: IApiConfiguration) {
 		// Reset to empty if falsy
 		config = config || {};
 
-		// Merge with default setings
-		//this._config = $.extend(BaseApi._defaultConfig, config);
+		// Get Default Config initially
+		this._config = BaseApi.getDefaultConfig();
+
+		// Merge in new Values
+		this._config.baseUrl = config.baseUrl || this._config.baseUrl;
+		this._config.token = config.token || this._config.token;
 	}
 
 	private _http: HttpClient;
 
-	private _config: IApiConfiguration;
+	private _config: IApiConfiguration = {};
 
-	protected get http():HttpClient {
+	private get http():HttpClient {
 		if (!this._http) {
 			this._http = new HttpClient();
 			this._http.configure(config =>
@@ -32,7 +39,7 @@ export class BaseApi {
 		return this._http;
 	}
 
-	protected fetch(method:string, url:string, data:any = undefined):Promise<any> {
+	protected _fetch(method:string, url:string, data:any = undefined):Promise<any> {
 		return this.http
 			.fetch(url, {
 				method: method,
@@ -41,27 +48,27 @@ export class BaseApi {
 			.then(response => response.json());
 	}
 
-	protected get(url:string):Promise<any> {
-		return this.fetch("get", url);
+	protected _get(url:string):Promise<any> {
+		return this._fetch("get", url);
 	}
 
-	protected post(url:string, data:any):Promise<any> {
-		return this.fetch("post", url, data);
+	protected _post(url:string, data:any):Promise<any> {
+		return this._fetch("post", url, data);
 	}
 
-	protected patch(url:string, data:any):Promise<any> {
-		return this.fetch("patch", url, data);
+	protected _patch(url:string, data:any):Promise<any> {
+		return this._fetch("patch", url, data);
 	}
 
-	protected delete(url:string, data:any):Promise<any> {
-		return this.fetch("delete", url, data);
+	protected _delete(url:string, data:any):Promise<any> {
+		return this._fetch("delete", url, data);
 	}
 
-	protected put(url:string, data:any):Promise<any> {
-		return this.fetch("put", url, data);
+	protected _put(url:string, data:any):Promise<any> {
+		return this._fetch("put", url, data);
 	}
 
-	protected head(url:string, data:any):Promise<any> {
-		return this.fetch("head", url, data);
+	protected _head(url:string, data:any):Promise<any> {
+		return this._fetch("head", url, data);
 	}
 }

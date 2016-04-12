@@ -10,49 +10,49 @@ import {ICountryData, ICurrencyData, ICurrencyExchangeRateData, IPieceAttributeD
 
 export class CountriesApi extends BaseApi {
     public Create(data: ICountryData):Promise<ICountryData> {
-        return this.put(`api/countries`, data);
+        return this._put(`api/countries`, data);
     }
 
     public Delete(key:string):Promise<boolean> {
-        return this.delete(`api/countries`, key);
+        return this._delete(`api/countries`, key);
     }
 
     public Get(key:string):Promise<ICountryData> {
-        return this.get(`api/countries/${key}`);
+        return this._get(`api/countries/${key}`);
     }
 
     public GetAll():Promise<ICountryData[]> {
-        return this.get(`api/countries`);
+        return this._get(`api/countries`);
     }
 
     public Update(data:ICountryData):Promise<ICountryData> {
-        return this.patch(`api/countries`, data);
+        return this._patch(`api/countries`, data);
     }
 }
 
 export class CurrenciesApi extends BaseApi {
     public Create(data:ICurrencyData):Promise<ICurrencyData> {
-        return this.put(`api/currencies`, data);
+        return this._put(`api/currencies`, data);
     }
 
     public Delete(key:string):Promise<boolean> {
-        return this.delete(`api/currencies`, key);
+        return this._delete(`api/currencies`, key);
     }
 
     public Get(key:string):Promise<ICurrencyData> {
-        return this.get(`api/currencies/${key}`);
+        return this._get(`api/currencies/${key}`);
     }
 
     public GetAll():Promise<ICurrencyData[]> {
-        return this.get(`api/currencies`);
+        return this._get(`api/currencies`);
     }
 
     public GetRate(key:string, date:string):Promise<ICurrencyExchangeRateData> {
-        return this.get(`api/currencies/${key}/rates/${date}`);
+        return this._get(`api/currencies/${key}/rates/${date}`);
     }
 
     public Update(data:ICurrencyData):Promise<ICurrencyData> {
-        return this.patch(`api/currencies`, data);
+        return this._patch(`api/currencies`, data);
     }
 }
 
