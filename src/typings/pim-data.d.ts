@@ -2,7 +2,7 @@
    The contents of this file are automatically generated
 
    Version: DEV
-   Date:    4/12/2016 11:06:51
+   Date:    4/12/2016 12:54:02
 */
 
 declare module 'pim-data' {

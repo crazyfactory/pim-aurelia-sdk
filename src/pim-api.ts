@@ -2,7 +2,7 @@
    The contents of this file are automatically generated
 
    Version: DEV
-   Date:    4/12/2016 11:06:51
+   Date:    4/12/2016 12:54:02
 */
 
 import {BaseApi} from './pim-api-core';
@@ -127,6 +127,10 @@ export class PieceGroupTypesApi extends BaseApi {
 }
 
 export class PiecesApi extends BaseApi {
+    public count(data: IPieceSelectorData): Promise<number> {
+        return this._post(`api/pieces`, data);
+    }
+
     public create(data: IPieceData): Promise<IPieceData> {
         return this._put(`api/pieces`, data);
     }
