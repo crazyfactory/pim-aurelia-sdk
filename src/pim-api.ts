@@ -5,7 +5,7 @@
    Date:    4/11/2016 12:05:24
 */
 
-import {BaseApi} from 'pim-base-api';
+import {BaseApi} from './pim-base-api';
 import {ICountryData, ICurrencyData, ICurrencyExchangeRateData, IPieceAttributeData, IPieceGroupData, IPieceGroupTypeData, IPagedResultData, IPieceData, IPieceSelectorData} from 'pim-data';
 
 export class CountriesApi extends BaseApi {
