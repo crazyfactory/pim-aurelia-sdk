@@ -1,8 +1,9 @@
 /*
    The contents of this file are automatically generated
 
-   Version: DEV
-   Date:    4/12/2016 11:06:51
+   Origin:  pim
+   Version: 1.0.0-dev
+   Date:    4/15/2016 13:46:09
 */
 
 declare module 'pim-data' {
@@ -35,11 +36,21 @@ declare module 'pim-data' {
 
     export interface IPieceAttributeData
     {
-        Id?: number;
-        Name?: string;
+        Key?: string;
         Description?: string;
         Unit?: string;
         Values?: string[];
+    }
+
+    export interface IPieceAttributeValueUsageData
+    {
+        Key?: string;
+        Value?: string;
+        PieceGroupTypeCount?: number;
+        PieceGroupCount?: number;
+        SupplierPieceGroupCount?: number;
+        PieceCount?: number;
+        SupplierPieceCount?: number;
     }
 
     export interface IPieceData
@@ -102,6 +113,10 @@ declare module 'pim-data' {
         SupplierPieceGroupId?: number;
         PieceId?: number;
         Attributes?: {[key: string]: string};
+    }
+
+    export interface IVoid
+    {
     }
 
     export interface IPagedResultData<T>
