@@ -45,7 +45,28 @@ export class BaseApi {
 				method: method,
 				body: data !== undefined ? json(data) : undefined
 			})
-			.then(response => response.json());
+			.then((response) => {
+				var ct = response.headers.get("Content-Type");
+				//console.log("Url", response.url);
+				//console.log("Content-Type", ct);
+
+				// Real json objects
+				if (ct.indexOf("application/json") >= 0) {
+					return response.json();
+					/*return response.json().then(function (json) {
+						console.log("JSON Result", json);
+						return json;
+					});*/
+				}
+				// Json String result and other texts
+				else if (ct.indexOf("text/plain") >= 0) {
+					return response.text();
+					/*return response.text().then(function (text) {
+						console.log("TEXT Result", text);
+						return text;
+					});*/
+				}
+			});
 	}
 
 	protected _get(url:string):ApiPromise<any> {
