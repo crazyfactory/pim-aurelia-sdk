@@ -1,6 +1,6 @@
 import {HttpClient, json} from 'aurelia-fetch-client';
 import 'fetch';
-import {IApiConfiguration, ApiPromise} from 'pim-core';
+import {IApiConfiguration, ApiPromise, IApiException} from 'pim-core';
 
 export class BaseApi {
 
@@ -46,26 +46,38 @@ export class BaseApi {
 				body: data !== undefined ? json(data) : undefined
 			})
 			.then((response) => {
-				var ct = response.headers.get("Content-Type");
+				let ct = response.headers.get("Content-Type");
+
 				//console.log("Url", response.url);
 				//console.log("Content-Type", ct);
 
-				// Real json objects
-				if (ct.indexOf("application/json") >= 0) {
-					return response.json();
-					/*return response.json().then(function (json) {
-						console.log("JSON Result", json);
-						return json;
-					});*/
+				if (response.ok) {
+
+					// No Content-Type (2xx Code, maybe NoContent etc.)
+					if (!ct) {
+						return null;
+					}
+
+					// Real json objects
+					if (ct.indexOf("application/json") >= 0) {
+						return response.json();
+					}
+
+					// Json String result and other texts
+					else if (ct.indexOf("text/plain") >= 0) {
+						return response.text();
+					}
+
+					// Files/Blobs?
+					//
+					//
+
+					// Unknown Content Type!
+					throw new Error("Unhandled Content-Type '" + ct + "' \r\n  Url: " + response.url);
 				}
-				// Json String result and other texts
-				else if (ct.indexOf("text/plain") >= 0) {
-					return response.text();
-					/*return response.text().then(function (text) {
-						console.log("TEXT Result", text);
-						return text;
-					});*/
-				}
+
+				// Response is not ok, but somehow didn't throw up earlier? Throw it now!
+				throw response;
 			});
 	}
 

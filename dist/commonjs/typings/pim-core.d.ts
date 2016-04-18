@@ -8,10 +8,8 @@ declare module 'pim-core' {
 	export interface IApiException {
 		status: number;
 		statusText: string;
-		ok: boolean;
-		type: string;
+		message: string;
 		url: string;
-		headers: Headers
 	}
 
 	export interface ApiPromise<T> {
