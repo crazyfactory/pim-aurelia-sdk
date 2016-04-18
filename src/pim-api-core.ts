@@ -1,6 +1,6 @@
 import {HttpClient, json} from 'aurelia-fetch-client';
 import 'fetch';
-import {IApiConfiguration, ApiPromise, IApiException} from 'pim-core';
+import {IApiConfiguration, IApiException} from 'pim-core';
 
 export class BaseApi {
 
@@ -39,7 +39,7 @@ export class BaseApi {
 		return this._http;
 	}
 
-	protected _fetch(method:string, url:string, data:any = undefined):ApiPromise<any> {
+	protected _fetch(method:string, url:string, data:any = undefined): Promise<any> {
 		return <any> this.http
 			.fetch(url, {
 				method: method,
@@ -81,27 +81,27 @@ export class BaseApi {
 			});
 	}
 
-	protected _get(url:string):ApiPromise<any> {
+	protected _get(url:string): Promise<any> {
 		return this._fetch("get", url);
 	}
 
-	protected _post(url:string, data:any):ApiPromise<any> {
+	protected _post(url:string, data:any): Promise<any> {
 		return this._fetch("post", url, data);
 	}
 
-	protected _patch(url:string, data:any):ApiPromise<any> {
+	protected _patch(url:string, data:any): Promise<any> {
 		return this._fetch("patch", url, data);
 	}
 
-	protected _delete(url:string, data:any):ApiPromise<any> {
+	protected _delete(url:string, data:any): Promise<any> {
 		return this._fetch("delete", url, data);
 	}
 
-	protected _put(url:string, data:any):ApiPromise<any> {
+	protected _put(url:string, data:any): Promise<any> {
 		return this._fetch("put", url, data);
 	}
 
-	protected _head(url:string):ApiPromise<any> {
+	protected _head(url:string): Promise<any> {
 		return this._fetch("head", url);
 	}
 }

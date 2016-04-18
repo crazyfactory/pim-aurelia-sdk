@@ -3,104 +3,104 @@
 
    Origin:  pim
    Version: 1.0.0-dev
-   Date:    4/15/2016 13:46:09
+   Date:    4/18/2016 16:36:08
 */
 
 declare module 'pim-api' {
-    import {IApiConfiguration, ApiPromise} from 'pim-core';
+    import {IApiConfiguration} from 'pim-core';
     import {ICountryData, ICurrencyData, ICurrencyExchangeRateData, IPieceAttributeData, IVoid, IPieceAttributeValueUsageData, IPieceGroupData, IPieceGroupTypeData, IPagedResultData, IPieceData, IPieceSelectorData} from 'pim-data';
 
     export class CountriesApi {
         constructor(config?: IApiConfiguration);
-        create(data: ICountryData): ApiPromise<ICountryData>;
+        create(data: ICountryData): Promise<ICountryData>;
 
-        delete(key: string): ApiPromise<boolean>;
+        delete(key: string): Promise<boolean>;
 
-        get(key: string): ApiPromise<ICountryData>;
+        get(key: string): Promise<ICountryData>;
 
-        getAll(): ApiPromise<ICountryData[]>;
+        getAll(): Promise<ICountryData[]>;
 
-        update(data: ICountryData): ApiPromise<ICountryData>;
+        update(data: ICountryData): Promise<ICountryData>;
     }
 
     export class CurrenciesApi {
         constructor(config?: IApiConfiguration);
-        create(data: ICurrencyData): ApiPromise<ICurrencyData>;
+        create(data: ICurrencyData): Promise<ICurrencyData>;
 
-        delete(key: string): ApiPromise<boolean>;
+        delete(key: string): Promise<boolean>;
 
-        get(key: string): ApiPromise<ICurrencyData>;
+        get(key: string): Promise<ICurrencyData>;
 
-        getAll(): ApiPromise<ICurrencyData[]>;
+        getAll(): Promise<ICurrencyData[]>;
 
-        getRate(key: string, date: string): ApiPromise<ICurrencyExchangeRateData>;
+        getRate(key: string, date: string): Promise<ICurrencyExchangeRateData>;
 
-        update(data: ICurrencyData): ApiPromise<ICurrencyData>;
+        update(data: ICurrencyData): Promise<ICurrencyData>;
     }
 
     export class PieceAttributesApi {
         constructor(config?: IApiConfiguration);
-        addValue(key: string, value: string): ApiPromise<string>;
+        addValue(key: string, value: string): Promise<string>;
 
-        create(key: string): ApiPromise<IPieceAttributeData>;
+        create(key: string): Promise<IPieceAttributeData>;
 
-        deleteValue(key: string, value: string): ApiPromise<IVoid>;
+        deleteValue(key: string, value: string): Promise<IVoid>;
 
-        get(key: string): ApiPromise<IPieceAttributeData>;
+        get(key: string): Promise<IPieceAttributeData>;
 
-        getAll(): ApiPromise<IPieceAttributeData[]>;
+        getAll(): Promise<IPieceAttributeData[]>;
 
-        update(key: string, data: IPieceAttributeData): ApiPromise<IPieceAttributeData>;
+        update(key: string, data: IPieceAttributeData): Promise<IPieceAttributeData>;
     }
 
     export class PieceAttributeValuesApi {
         constructor(config?: IApiConfiguration);
-        getUsage(key: string, value: string): ApiPromise<IPieceAttributeValueUsageData>;
+        getUsage(key: string, value: string): Promise<IPieceAttributeValueUsageData>;
     }
 
     export class PieceGroupsApi {
         constructor(config?: IApiConfiguration);
-        create(data: IPieceGroupData): ApiPromise<IPieceGroupData>;
+        create(data: IPieceGroupData): Promise<IPieceGroupData>;
 
-        delete(id: number): ApiPromise<boolean>;
+        delete(id: number): Promise<boolean>;
 
-        get(id: number): ApiPromise<IPieceGroupData>;
+        get(id: number): Promise<IPieceGroupData>;
 
-        getAll(): ApiPromise<IPieceGroupData[]>;
+        getAll(): Promise<IPieceGroupData[]>;
 
-        getByCode(code: string): ApiPromise<IPieceGroupData>;
+        getByCode(code: string): Promise<IPieceGroupData>;
 
-        update(data: IPieceGroupData): ApiPromise<IPieceGroupData>;
+        update(data: IPieceGroupData): Promise<IPieceGroupData>;
     }
 
     export class PieceGroupTypesApi {
         constructor(config?: IApiConfiguration);
-        create(data: IPieceGroupTypeData): ApiPromise<IPieceGroupTypeData>;
+        create(data: IPieceGroupTypeData): Promise<IPieceGroupTypeData>;
 
-        delete(id: number): ApiPromise<boolean>;
+        delete(id: number): Promise<boolean>;
 
-        get(id: number): ApiPromise<IPieceGroupTypeData>;
+        get(id: number): Promise<IPieceGroupTypeData>;
 
-        getList(): ApiPromise<IPieceGroupTypeData[]>;
+        getAll(): Promise<IPieceGroupTypeData[]>;
 
-        update(data: IPieceGroupTypeData): ApiPromise<IPieceGroupTypeData>;
+        update(data: IPieceGroupTypeData): Promise<IPieceGroupTypeData>;
     }
 
     export class PiecesApi {
         constructor(config?: IApiConfiguration);
-        count(data: IPieceSelectorData): ApiPromise<number>;
+        count(data: IPieceSelectorData): Promise<number>;
 
-        create(data: IPieceData): ApiPromise<IPieceData>;
+        create(data: IPieceData): Promise<IPieceData>;
 
-        delete(id: number): ApiPromise<IPieceData>;
+        delete(id: number): Promise<IPieceData>;
 
-        find(data: IPieceSelectorData): ApiPromise<IPagedResultData<IPieceData>>;
+        find(data: IPieceSelectorData): Promise<IPagedResultData<IPieceData>>;
 
-        get(id: number): ApiPromise<IPieceData>;
+        get(id: number): Promise<IPieceData>;
 
-        getByCode(code: string): ApiPromise<IPieceData>;
+        getByCode(code: string): Promise<IPieceData>;
 
-        update(data: IPieceData): ApiPromise<IPieceData>;
+        update(data: IPieceData): Promise<IPieceData>;
     }
 
 
