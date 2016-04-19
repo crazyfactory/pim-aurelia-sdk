@@ -3,15 +3,15 @@
 
    Origin:  pim
    Version: 1.0.0-dev
-   Date:    4/19/2016 09:57:30
+   Date:    4/19/2016 13:32:25
 */
 
 import {BaseApi, BaseConfiguration} from './pim-api-core';
+import {IApiConfiguration} from 'pim-core';
 import {ICountryData, ICurrencyData, ICurrencyExchangeRateData, IPieceAttributeData, IVoid, IPieceAttributeValueUsageData, IPieceGroupData, IPieceGroupTypeData, IPagedResultData, IPieceData, IPieceSelectorData} from 'pim-data';
-import {IApiConfiguration} from "pim-core";
 
 export class Configuration {
-    public static getDefault() {
+    public static getDefault() { 
         return BaseConfiguration.getDefault();
     }
     public static setDefault(config: IApiConfiguration) {
