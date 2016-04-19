@@ -2,32 +2,35 @@ import {HttpClient, json} from 'aurelia-fetch-client';
 import 'fetch';
 import {IApiConfiguration, IApiException} from 'pim-core';
 
-export class BaseApi {
+export class BaseConfiguration {
 
 	/* STATIC */
 
-	public static get standardConfiguration() {
+	private static get standardConfiguration() {
 		return {
 			baseUrl: 'http://localhost:5000/',
 			token: null
 		};
 	}
 
-	private static _defaultConfiguration: IApiConfiguration = {};
+	private static _default: IApiConfiguration = {};
 
-	public static setDefaultConfig(config: IApiConfiguration) {
+	public static setDefault(config: IApiConfiguration) {
 
 		// Fix null values
 		config = config || {};
 
 		// Merge new config values into custom values.
-		this._defaultConfiguration = Object.assign({}, this._defaultConfiguration, config);
+		this._default = Object.assign({}, this._default, config);
 	}
 
-	public static getDefaultConfig(): IApiConfiguration {
+	public static getDefault(): IApiConfiguration {
 		// Merge standard values and custom values.
-		return Object.assign({}, this.standardConfiguration, this._defaultConfiguration);
+		return Object.assign({}, this.standardConfiguration, this._default);
 	};
+}
+
+export class BaseApi {
 
 	/* INSTANCE */
 
@@ -39,11 +42,17 @@ export class BaseApi {
 
 	private _config: IApiConfiguration = {};
 
+	private _getConfiguration(): IApiConfiguration {
+		return Object.assign({}, BaseConfiguration.getDefault(), this._config);
+	}
+
 	private _getHttpClient():HttpClient {
+		let config = this._getConfiguration();
+
 		return new HttpClient().configure(config =>
 			config
 				.useStandardConfiguration()
-				.withBaseUrl(this._config.baseUrl)
+				.withBaseUrl(config.baseUrl)
 		);
 	}
 

@@ -6,8 +6,10 @@
    Date:    4/19/2016 09:57:30
 */
 
-import {BaseApi} from './pim-api-core';
+import {BaseApi, BaseConfiguration} from './pim-api-core';
 import {ICountryData, ICurrencyData, ICurrencyExchangeRateData, IPieceAttributeData, IVoid, IPieceAttributeValueUsageData, IPieceGroupData, IPieceGroupTypeData, IPagedResultData, IPieceData, IPieceSelectorData} from 'pim-data';
+
+export class Configuration extends BaseConfiguration { }
 
 export class CountriesApi extends BaseApi {
     public create(data: ICountryData): Promise<ICountryData> {

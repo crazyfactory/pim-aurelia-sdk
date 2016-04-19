@@ -10,6 +10,11 @@ declare module 'pim-api' {
     import {IApiConfiguration} from 'pim-core';
     import {ICountryData, ICurrencyData, ICurrencyExchangeRateData, IPieceAttributeData, IVoid, IPieceAttributeValueUsageData, IPieceGroupData, IPieceGroupTypeData, IPagedResultData, IPieceData, IPieceSelectorData} from 'pim-data';
 
+    export class Configuration {
+        static setDefault: (config: IApiConfiguration) => void;
+        static getDefault: () => IApiConfiguration;
+    }
+
     export class CountriesApi {
         constructor(config?: IApiConfiguration);
         create(data: ICountryData): Promise<ICountryData>;
