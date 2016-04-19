@@ -4,43 +4,51 @@ import {IApiConfiguration, IApiException} from 'pim-core';
 
 export class BaseApi {
 
-	public static getDefaultConfig(): IApiConfiguration {
+	/* STATIC */
+
+	public static get standardConfiguration() {
 		return {
 			baseUrl: 'http://localhost:5000/',
 			token: null
 		};
-	};
-
-	constructor(config?: IApiConfiguration) {
-		// Reset to empty if falsy
-		config = config || {};
-
-		// Get Default Config initially
-		this._config = BaseApi.getDefaultConfig();
-
-		// Merge in new Values
-		this._config.baseUrl = config.baseUrl || this._config.baseUrl;
-		this._config.token = config.token || this._config.token;
 	}
 
-	private _http: HttpClient;
+	private static _defaultConfiguration: IApiConfiguration = {};
+
+	public static setDefaultConfig(config: IApiConfiguration) {
+
+		// Fix null values
+		config = config || {};
+
+		// Merge new config values into custom values.
+		this._defaultConfiguration = Object.assign({}, this._defaultConfiguration, config);
+	}
+
+	public static getDefaultConfig(): IApiConfiguration {
+		// Merge standard values and custom values.
+		return Object.assign({}, this.standardConfiguration, this._defaultConfiguration);
+	};
+
+	/* INSTANCE */
+
+	constructor(config?: IApiConfiguration) {
+
+		// Set instance configuration
+		this._config = config || {};
+	}
 
 	private _config: IApiConfiguration = {};
 
-	private get http():HttpClient {
-		if (!this._http) {
-			this._http = new HttpClient();
-			this._http.configure(config =>
-				config
-					.useStandardConfiguration()
-					.withBaseUrl(this._config.baseUrl)
-			);
-		}
-		return this._http;
+	private _getHttpClient():HttpClient {
+		return new HttpClient().configure(config =>
+			config
+				.useStandardConfiguration()
+				.withBaseUrl(this._config.baseUrl)
+		);
 	}
 
 	protected _fetch(method:string, url:string, data:any = undefined): Promise<any> {
-		return <any> this.http
+		return this._getHttpClient()
 			.fetch(url, {
 				method: method,
 				body: data !== undefined ? json(data) : undefined
