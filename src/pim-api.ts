@@ -8,8 +8,16 @@
 
 import {BaseApi, BaseConfiguration} from './pim-api-core';
 import {ICountryData, ICurrencyData, ICurrencyExchangeRateData, IPieceAttributeData, IVoid, IPieceAttributeValueUsageData, IPieceGroupData, IPieceGroupTypeData, IPagedResultData, IPieceData, IPieceSelectorData} from 'pim-data';
+import {IApiConfiguration} from "pim-core";
 
-export class Configuration extends BaseConfiguration { }
+export class Configuration {
+    public static getDefault() {
+        return BaseConfiguration.getDefault();
+    }
+    public static setDefault(config: IApiConfiguration) {
+        return BaseConfiguration.setDefault(config);
+    }
+}
 
 export class CountriesApi extends BaseApi {
     public create(data: ICountryData): Promise<ICountryData> {

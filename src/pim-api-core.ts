@@ -46,18 +46,25 @@ export class BaseApi {
 		return Object.assign({}, BaseConfiguration.getDefault(), this._config);
 	}
 
-	private _getHttpClient():HttpClient {
-		let config = this._getConfiguration();
-
+	private _getHttpClient(config: IApiConfiguration = {}):HttpClient {
 		return new HttpClient().configure(config =>
 			config
 				.useStandardConfiguration()
-				.withBaseUrl(config.baseUrl)
 		);
 	}
 
 	protected _fetch(method:string, url:string, data:any = undefined): Promise<any> {
-		return this._getHttpClient()
+
+		// Get fresh configuration
+		let config = this._getConfiguration();
+
+		// Combine URL if no protocol is present
+		url = url.indexOf("://") >= 0
+			? url
+			: config.baseUrl + url;
+
+		// Make Request and return Promise
+		return this._getHttpClient(config)
 			.fetch(url, {
 				method: method,
 				body: data !== undefined ? json(data) : undefined
