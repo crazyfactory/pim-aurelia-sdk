@@ -3,7 +3,7 @@
 
    Origin:  pim
    Version: 1.0.0-dev
-   Date:    4/19/2016 13:32:25
+   Date:    4/21/2016 16:36:47
 */
 
 import {BaseApi, BaseConfiguration} from './pim-api-core';
@@ -72,10 +72,6 @@ export class PieceAttributesApi extends BaseApi {
         return this._put(`api/pieceattributes/${key}/values`, value);
     }
 
-    public create(key: string): Promise<IPieceAttributeData> {
-        return this._get(`api/pieceattributes/create/${key}`);
-    }
-
     public deleteValue(key: string, value: string): Promise<IVoid> {
         return this._delete(`api/pieceattributes/${key}/values`, value);
     }
@@ -130,8 +126,8 @@ export class PieceGroupTypesApi extends BaseApi {
         return this._put(`api/piecegrouptypes`, data);
     }
 
-    public delete(id: number): Promise<boolean> {
-        return this._delete(`api/piecegrouptypes`, id);
+    public delete(id: number): Promise<IVoid> {
+        return this._delete(`api/piecegrouptypes/${id}`, null);
     }
 
     public get(id: number): Promise<IPieceGroupTypeData> {

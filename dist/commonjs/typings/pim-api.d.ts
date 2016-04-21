@@ -3,7 +3,7 @@
 
    Origin:  pim
    Version: 1.0.0-dev
-   Date:    4/19/2016 13:32:25
+   Date:    4/21/2016 16:36:47
 */
 
 declare module 'pim-api' {
@@ -47,8 +47,6 @@ declare module 'pim-api' {
         constructor(config?: IApiConfiguration);
         addValue(key: string, value: string): Promise<string>;
 
-        create(key: string): Promise<IPieceAttributeData>;
-
         deleteValue(key: string, value: string): Promise<IVoid>;
 
         get(key: string): Promise<IPieceAttributeData>;
@@ -82,7 +80,7 @@ declare module 'pim-api' {
         constructor(config?: IApiConfiguration);
         create(data: IPieceGroupTypeData): Promise<IPieceGroupTypeData>;
 
-        delete(id: number): Promise<boolean>;
+        delete(id: number): Promise<IVoid>;
 
         get(id: number): Promise<IPieceGroupTypeData>;
 

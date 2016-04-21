@@ -3,7 +3,7 @@
 
    Origin:  pim
    Version: 1.0.0-dev
-   Date:    4/19/2016 13:32:25
+   Date:    4/21/2016 16:36:47
 */
 
 declare module 'pim-data' {
@@ -39,7 +39,9 @@ declare module 'pim-data' {
         Key?: string;
         Description?: string;
         Unit?: string;
-        IsAcceptingAnyValue?: boolean;
+        IsAcceptingCustomValue?: boolean;
+        IsAcceptingNullValue?: boolean;
+        IsGlobalRequired?: boolean;
         Values?: string[];
     }
 
