@@ -1,12 +1,19 @@
 /*
    The contents of this file are automatically generated
 
-   Origin:  pim
-   Version: 1.0.0-dev
-   Date:    4/22/2016 12:47:51
+   Application:  pim
+   Version:      0.1.0
+   Date:         2016-04-25T09:08:55Z
 */
 
 declare module 'pim-data' {
+    export interface IRuntimeData
+    {
+        Application?: string;
+        Version?: string;
+        Configuration?: string;
+    }
+
     export interface ICountryData
     {
         Key?: string;
@@ -50,10 +57,13 @@ declare module 'pim-data' {
         Key?: string;
         Value?: string;
         PieceGroupTypeCount?: number;
+        PieceGroupWithDefaultValueCount?: number;
         PieceGroupCount?: number;
         SupplierPieceGroupCount?: number;
+        SupplierPieceGroupWithDefaultValueCount?: number;
         PieceCount?: number;
         SupplierPieceCount?: number;
+        IsUsed?: boolean;
     }
 
     export interface IPieceData

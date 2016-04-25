@@ -1,6 +1,6 @@
 {
   "name": "pim-api",
-  "version": "0.3.2",
+  "version": "0.1.0",
   "description": "Aurelia SDK to connect to the Crazy Factory Product Management System.",
   "keywords": [
     "aurelia",

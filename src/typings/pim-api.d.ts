@@ -1,18 +1,19 @@
 /*
    The contents of this file are automatically generated
 
-   Origin:  pim
-   Version: 1.0.0-dev
-   Date:    4/22/2016 12:47:51
+   Application:  pim
+   Version:      0.1.0
+   Date:         2016-04-25T09:08:55Z
 */
 
 declare module 'pim-api' {
     import {IApiConfiguration} from 'pim-core';
-    import {ICountryData, ICurrencyData, ICurrencyExchangeRateData, IPieceAttributeData, IVoid, IPieceAttributeValueUsageData, IPieceGroupData, IPieceGroupTypeData, IPagedResultData, IPieceData, IPieceSelectorData} from 'pim-data';
+    import {ICountryData, ICurrencyData, ICurrencyExchangeRateData, IPieceAttributeData, IVoid, IPieceAttributeValueUsageData, IPieceGroupData, IPieceGroupTypeData, IPagedResultData, IPieceData, IPieceSelectorData, IRuntimeData} from 'pim-data';
 
     export class Configuration {
         static setDefault: (config: IApiConfiguration) => void;
         static getDefault: () => IApiConfiguration;
+        static getMetadata: () => { Version: string; Configuration: string };
     }
 
     export class CountriesApi {
@@ -106,6 +107,15 @@ declare module 'pim-api' {
         update(data: IPieceData): Promise<IPieceData>;
     }
 
+    export class RuntimeApi {
+        constructor(config?: IApiConfiguration);
+        get(): Promise<IRuntimeData>;
+    }
+
+    export class VersionApi {
+        constructor(config?: IApiConfiguration);
+        get(): Promise<string>;
+    }
 
 }
 /* End of file */

@@ -1,14 +1,15 @@
 /*
    The contents of this file are automatically generated
 
-   Origin:  pim
-   Version: 1.0.0-dev
-   Date:    4/22/2016 12:47:51
+   Application:  pim
+   Version:      0.1.0
+   Date:         2016-04-25T09:08:55Z
 */
 
-import {BaseApi, BaseConfiguration} from './pim-api-core';
+import {BaseApi, BaseConfiguration} from './core';
+import {BuildVersion, BuildConfiguration} from './metadata';
 import {IApiConfiguration} from 'pim-core';
-import {ICountryData, ICurrencyData, ICurrencyExchangeRateData, IPieceAttributeData, IVoid, IPieceAttributeValueUsageData, IPieceGroupData, IPieceGroupTypeData, IPagedResultData, IPieceData, IPieceSelectorData} from 'pim-data';
+import {ICountryData, ICurrencyData, ICurrencyExchangeRateData, IPieceAttributeData, IVoid, IPieceAttributeValueUsageData, IPieceGroupData, IPieceGroupTypeData, IPagedResultData, IPieceData, IPieceSelectorData, IRuntimeData} from 'pim-data';
 
 export class Configuration {
     public static getDefault() { 
@@ -16,6 +17,9 @@ export class Configuration {
     }
     public static setDefault(config: IApiConfiguration) {
         return BaseConfiguration.setDefault(config);
+    }
+    public static getMetadata() {
+        return { Version: BuildVersion, Configuration: BuildConfiguration };
     }
 }
 
@@ -173,5 +177,16 @@ export class PiecesApi extends BaseApi {
     }
 }
 
+export class RuntimeApi extends BaseApi {
+    public get(): Promise<IRuntimeData> {
+        return this._get(`api/runtime`);
+    }
+}
+
+export class VersionApi extends BaseApi {
+    public get(): Promise<string> {
+        return this._get(`api/version`);
+    }
+}
 
 /* End of file */
