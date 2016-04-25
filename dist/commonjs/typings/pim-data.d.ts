@@ -2,8 +2,8 @@
    The contents of this file are automatically generated
 
    Application:  pim
-   Version:      0.1.0
-   Date:         2016-04-25T09:08:55Z
+   Version:      0.1.1
+   Date:         2016-04-25T09:29:40Z
 */
 
 declare module 'pim-data' {

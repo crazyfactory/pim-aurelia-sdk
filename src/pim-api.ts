@@ -2,12 +2,12 @@
    The contents of this file are automatically generated
 
    Application:  pim
-   Version:      0.1.0
-   Date:         2016-04-25T09:08:55Z
+   Version:      0.1.1
+   Date:         2016-04-25T09:29:40Z
 */
 
 import {BaseApi, BaseConfiguration} from './core';
-import {BuildVersion, BuildConfiguration} from './metadata';
+import {BuildApplication, BuildVersion, BuildConfiguration} from './metadata';
 import {IApiConfiguration} from 'pim-core';
 import {ICountryData, ICurrencyData, ICurrencyExchangeRateData, IPieceAttributeData, IVoid, IPieceAttributeValueUsageData, IPieceGroupData, IPieceGroupTypeData, IPagedResultData, IPieceData, IPieceSelectorData, IRuntimeData} from 'pim-data';
 
@@ -19,7 +19,7 @@ export class Configuration {
         return BaseConfiguration.setDefault(config);
     }
     public static getMetadata() {
-        return { Version: BuildVersion, Configuration: BuildConfiguration };
+        return { Application: BuildApplication, Configuration: BuildConfiguration, Version: BuildVersion };
     }
 }
 

@@ -2,8 +2,8 @@
    The contents of this file are automatically generated
 
    Application:  pim
-   Version:      0.1.0
-   Date:         2016-04-25T09:08:55Z
+   Version:      0.1.1
+   Date:         2016-04-25T09:29:40Z
 */
 
 declare module 'pim-api' {
@@ -13,7 +13,7 @@ declare module 'pim-api' {
     export class Configuration {
         static setDefault: (config: IApiConfiguration) => void;
         static getDefault: () => IApiConfiguration;
-        static getMetadata: () => { Version: string; Configuration: string };
+        static getMetadata: () => { Application: string; Configuration: string; Version: string; };
     }
 
     export class CountriesApi {
