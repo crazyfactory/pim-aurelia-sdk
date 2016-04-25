@@ -1,5 +1,24 @@
 {
   "rules": {
-
+    "class-name": true,
+    "comment-format": {
+      "check-space": true
+    },
+    "interface-name": [
+      true,
+      "always-prefix"
+    ],
+    "no-consecutive-blank-lines": true,
+    "no-eval": true,
+    "no-var-keyword": true,
+    "whitespace": {
+      "check-branch": true,
+      "check-decl": true,
+      "check-operator": true,
+      "check-module": true,
+      "check-separator": true,
+      "check-type": true,
+      "check-typecast": true
+    }
   }
 }
