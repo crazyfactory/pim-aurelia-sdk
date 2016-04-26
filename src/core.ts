@@ -1,7 +1,7 @@
 import {HttpClient, json} from 'aurelia-fetch-client';
 import 'fetch';
 import {IApiConfiguration, IApiException} from 'pim-core';
-import {BuildConfiguration} from 'metadata';
+import {BuildConfiguration} from './metadata';
 
 export class BaseConfiguration {
 
