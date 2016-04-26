@@ -1,6 +1,7 @@
 import {HttpClient, json} from 'aurelia-fetch-client';
 import 'fetch';
 import {IApiConfiguration, IApiException} from 'pim-core';
+import {BuildConfiguration} from 'metadata';
 
 export class BaseConfiguration {
 
@@ -63,12 +64,27 @@ export class BaseApi {
 			? url
 			: config.baseUrl + url;
 
+		// Data
+		let body: string | Blob =
+			data !== undefined
+				? BuildConfiguration == "debug"
+					? JSON.stringify(data)
+					: json(data)
+				: undefined;
+
 		// Make Request and return Promise
 		return this._getHttpClient(config)
-			.fetch(url, {
-				method: method,
-				body: data !== undefined ? json(data) : undefined
-			})
+			.fetch(url,
+				{
+					method: method,
+					body: body,
+					headers: BuildConfiguration != "debug"
+						? undefined
+						: {
+							'Content-Type': 'application/json'
+						}
+				}
+			)
 			.then((response) => {
 				let ct = response.headers.get("Content-Type");
 
