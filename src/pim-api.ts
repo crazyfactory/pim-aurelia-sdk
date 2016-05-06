@@ -2,8 +2,8 @@
    The contents of this file are automatically generated
 
    Application:  pim
-   Version:      0.2.0
-   Date:         2016-05-06T06:19:55Z
+   Version:      0.2.1
+   Date:         2016-05-06T06:24:30Z
 */
 
 import {BaseApi, BaseConfiguration} from './core';
@@ -285,7 +285,7 @@ export class UserPermissionsApi extends BaseApi {
 
 export class UserProfilesApi extends BaseApi {
     public get(userId: number): Promise<IUserProfileData> {
-        return this._get(`api/userprofiles/${id}`);
+        return this._get(`api/userprofiles/${userId}`);
     }
 
     public update(data: IUserProfileData): Promise<IUserProfileData> {

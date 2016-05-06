@@ -2,16 +2,16 @@
    The contents of this file are automatically generated
 
    Application:  pim
-   Version:      0.1.1
-   Date:         2016-04-25T09:29:40Z
+   Version:      0.2.1
+   Date:         2016-05-06T06:24:30Z
 */
 
 declare module 'pim-data' {
     export interface IRuntimeData
     {
         Application?: string;
-        Version?: string;
         Configuration?: string;
+        Version?: string;
     }
 
     export interface ICountryData
@@ -46,6 +46,7 @@ declare module 'pim-data' {
         Key?: string;
         Description?: string;
         Unit?: string;
+        Type?: string;
         IsAcceptingCustomValue?: boolean;
         IsAcceptingNullValue?: boolean;
         IsGlobalRequired?: boolean;
@@ -107,6 +108,11 @@ declare module 'pim-data' {
     {
     }
 
+    export interface ISessionData
+    {
+        IsElevated?: boolean;
+    }
+
     export interface ISupplierPieceGroupData
     {
         Id?: number;
@@ -126,6 +132,51 @@ declare module 'pim-data' {
         SupplierPieceGroupId?: number;
         PieceId?: number;
         Attributes?: {[key: string]: string};
+    }
+
+    export interface IUserData
+    {
+        Id?: number;
+        Login?: string;
+        Password?: string;
+        UserProfile?: IUserProfileData;
+        Permissions?: string[];
+    }
+
+    export interface IUserGroupData
+    {
+        Id?: number;
+        DisplayName?: string;
+        ParentId?: number;
+    }
+
+    export interface IUserGroupPermissionData
+    {
+        Key?: string;
+        InheritedValue?: boolean;
+        ExplicitValue?: boolean;
+        IsInherited?: boolean;
+        IsExplicit?: boolean;
+        Value?: boolean;
+    }
+
+    export interface IUserPermissionData
+    {
+        Key?: string;
+        Value?: boolean;
+        InheritedValue?: boolean;
+        ExplicitValue?: boolean;
+        IsInherited?: boolean;
+        IsExplicit?: boolean;
+    }
+
+    export interface IUserProfileData
+    {
+        DisplayName?: string;
+        FirstName?: string;
+        LastName?: string;
+        DisplayHandle?: string;
+        UserId?: number;
     }
 
     export interface IVoid
