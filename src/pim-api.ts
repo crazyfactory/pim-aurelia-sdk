@@ -3,7 +3,7 @@
 
    Application:  pim
    Version:      0.2.1
-   Date:         2016-05-06T06:24:30Z
+   Date:         2016-05-09T08:25:30Z
 */
 
 import {BaseApi, BaseConfiguration} from './core';
@@ -20,6 +20,12 @@ export class Configuration {
     }
     public static getMetadata() {
         return { Application: BuildApplication, Configuration: BuildConfiguration, Version: BuildVersion };
+    }
+    public static storeToken(token: string) {
+        return BaseConfiguration.storeToken(token);
+    }
+    public static retrieveToken() {
+        return BaseConfiguration.retrieveToken();
     }
 }
 

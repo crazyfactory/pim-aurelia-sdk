@@ -3,7 +3,7 @@
 
    Application:  pim
    Version:      0.2.1
-   Date:         2016-05-06T06:24:30Z
+   Date:         2016-05-09T08:25:30Z
 */
 
 declare module 'pim-data' {

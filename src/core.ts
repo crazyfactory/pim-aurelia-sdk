@@ -1,11 +1,19 @@
 import {HttpClient, json} from 'aurelia-fetch-client';
 import 'fetch';
 import {IApiConfiguration, IApiException} from 'pim-core';
-import {BuildConfiguration} from './metadata';
+import {BuildConfiguration, BuildApplication} from './metadata';
 
 export class BaseConfiguration {
 
 	/* STATIC */
+
+	public static storeToken(token: string) {
+		window.localStorage.setItem(BuildApplication + "_access_token", token);
+	}
+
+	public static retrieveToken(): string {
+		return window.localStorage.getItem(BuildApplication + "_access_token");
+	}
 
 	private static get standardConfiguration() {
 		return {
@@ -72,17 +80,22 @@ export class BaseApi {
 					: json(data)
 				: undefined;
 
+		// Headers
+		let headers = {};
+		if (BuildConfiguration != "debug") {
+			headers['Content-Type'] = 'application/json';
+		}
+		if (config.token) {
+			headers['Authorization'] = 'Bearer '+ config.token;
+		}
+
 		// Make Request and return Promise
 		return this._getHttpClient(config)
 			.fetch(url,
 				{
 					method: method,
 					body: body,
-					headers: BuildConfiguration != "debug"
-						? undefined
-						: {
-							'Content-Type': 'application/json'
-						}
+					headers: headers
 				}
 			)
 			.then((response) => {
