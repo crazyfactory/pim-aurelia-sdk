@@ -82,7 +82,7 @@ export class BaseApi {
 
 		// Headers
 		let headers = {};
-		if (BuildConfiguration != "debug") {
+		if (BuildConfiguration == "debug") {
 			headers['Content-Type'] = 'application/json';
 		}
 		if (config.token) {
